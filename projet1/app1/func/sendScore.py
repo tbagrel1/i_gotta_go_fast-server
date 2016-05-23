@@ -53,7 +53,9 @@ def _sendScore(request):
 
     def dechecksum(score):
         try:
-            fichier_checksum = open("app1/func/checksum/checksum.db", "rb")
+            fichier_checksum = open(os.getcwd() +
+                                    "/app1/func/checksum/checksum.db",
+                                    "rb")
             mon_pickler = pickle.Unpickler(fichier_checksum)
             liste_checksum = mon_pickler.load()
             fichier_checksum.close()
