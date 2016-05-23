@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3.5
 # -*- coding: utf-8 -*
 
 from django.shortcuts import HttpResponse
@@ -6,6 +6,7 @@ from app1.models import Score
 
 import pickle
 import os
+import binascii
 
 def _getDB(request):
     try:
@@ -29,7 +30,8 @@ def _getDB(request):
     mon_pickler.dump(db)
     fichier_temp.close()
     fichier_temp = open("app1/func/temp_getDB.tmp", "rb")
-    retour = fichier_temp.read().encode('hex')
+    retour = binascii.b2a_hex(fichier_temp.read().encode("utf-8"))\
+        .decode("utf-8")
     fichier_temp.close()
     os.remove("app1/func/temp_getDB.tmp")
 

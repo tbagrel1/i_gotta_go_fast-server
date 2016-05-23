@@ -1,14 +1,20 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3.5
 # -*- coding: utf-8 -*
 
 from django.shortcuts import HttpResponse
 from app1.models import Score
 
+import binascii
+
 def _viewScores(request):
 
-    pseudo_cur = request.GET.get('pseudo', '').decode('hex')
-    date_cur = request.GET.get('date', '').decode('hex')
-    heure_cur = request.GET.get('heure', '').decode('hex')
+    pseudo_cur = request.GET.get('pseudo', '')
+    date_cur = request.GET.get('date', '')
+    heure_cur = request.GET.get('heure', '')
+
+    pseudo_cur = binascii.a2b_hex(pseudo_cur.encode("utf-8")).decode("utf-8")
+    date_cur = binascii.a2b_hex(date_cur.encode("utf-8")).decode("utf-8")
+    heure_cur = binascii.a2b_hex(heure_cur.encode("utf-8")).decode("utf-8")
 
     try:
         db = list(Score.objects.order_by('-score'))

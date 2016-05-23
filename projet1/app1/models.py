@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3.5
 # -*- coding: utf-8 -*
 
 from django.db import models

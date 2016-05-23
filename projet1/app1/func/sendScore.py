@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3.5
 # -*- coding: utf-8 -*
 
 from django.shortcuts import HttpResponse
@@ -7,6 +7,7 @@ from Crypto.Cipher import AES
 
 import os
 import pickle
+import binascii
 
 def _sendScore(request):
 
@@ -14,7 +15,7 @@ def _sendScore(request):
 
     def dehex(score):
         try:
-            score = score.decode('hex')
+            score = binascii.a2b_hex(score.encode("utf-8")).decode("utf-8")
             valid = "OK"
         except:
             score = None
