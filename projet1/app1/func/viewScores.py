@@ -6,9 +6,9 @@ from app1.models import Score
 
 def _viewScores(request):
 
-    pseudo_cur = request.GET.get('pseudo', '').decode(hex)
-    date_cur = request.GET.get('date', '').decode(hex)
-    heure_cur = request.GET.get('heure', '').decode(hex)
+    pseudo_cur = request.GET.get('pseudo', '').decode('hex')
+    date_cur = request.GET.get('date', '').decode('hex')
+    heure_cur = request.GET.get('heure', '').decode('hex')
 
     try:
         db = list(Score.objects.order_by('-score'))
