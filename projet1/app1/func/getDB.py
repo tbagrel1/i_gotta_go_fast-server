@@ -32,7 +32,7 @@ def _getDB(request):
     fichier_temp.close()
     fichier_temp = open(os.getcwd() +
                         "/projet1/app1/func/temp_getDB.tmp", "rb")
-    retour = binascii.b2a_hex(fichier_temp.read().encode("utf-8"))\
+    retour = binascii.b2a_hex(fichier_temp.read())\
         .decode("utf-8")
     fichier_temp.close()
     os.remove(os.getcwd() + "/projet1/app1/func/temp_getDB.tmp")
