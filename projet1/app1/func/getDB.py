@@ -25,14 +25,16 @@ def _getDB(request):
     except:
         db = None
 
-    fichier_temp = open(os.getcwd() + "/app1/func/temp_getDB.tmp", "wb")
+    fichier_temp = open(os.getcwd() +
+                        "/projet1/app1/func/temp_getDB.tmp", "wb")
     mon_pickler = pickle.Pickler(fichier_temp)
     mon_pickler.dump(db)
     fichier_temp.close()
-    fichier_temp = open(os.getcwd() + "/app1/func/temp_getDB.tmp", "rb")
+    fichier_temp = open(os.getcwd() +
+                        "/projet1/app1/func/temp_getDB.tmp", "rb")
     retour = binascii.b2a_hex(fichier_temp.read().encode("utf-8"))\
         .decode("utf-8")
     fichier_temp.close()
-    os.remove(os.getcwd() + "./app1/func/temp_getDB.tmp")
+    os.remove(os.getcwd() + "/projet1/app1/func/temp_getDB.tmp")
 
     return HttpResponse(retour)
