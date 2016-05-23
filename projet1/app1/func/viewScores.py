@@ -87,7 +87,7 @@ def _viewScores(request):
             else:
                 type_ligne = "normal"
 
-                c += """            <tr id={}>
+            c += """            <tr id={}>
                 <td>{}</td>
                 <td>{}</td>
                 <td>{}</td>
@@ -98,7 +98,7 @@ def _viewScores(request):
                 <td>{}</td>
                 <td>{}</td>
             </tr>
-"""\
+    """\
                 .format(type_ligne,
                         str(elt.id),
                         str(elt.pseudo),
