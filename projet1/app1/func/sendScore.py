@@ -1,3 +1,6 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*
+
 from django.shortcuts import HttpResponse
 from app1.models import Score
 from Crypto.Cipher import AES

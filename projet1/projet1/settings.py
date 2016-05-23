@@ -1,3 +1,6 @@
+#!/usr/bin/python2
+# -*- coding: utf-8 -*
+
 """
 Django settings for projet1 project.
 
