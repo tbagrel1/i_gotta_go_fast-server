@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'app1/base.html',
-                  {'titre': "message",
+                  {'titre': "Accueil",
                    'body': "Coucou !"})
 
 def calc(request):
