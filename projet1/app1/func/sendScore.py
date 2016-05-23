@@ -1,22 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse
 from app1.models import Score
 from Crypto.Cipher import AES
 
 import os
-import base64
 import pickle
 
 def _sendScore(request):
 
     # Définition des fonctions
 
-    def debase64(score):
+    def dehex(score):
         try:
-            score = base64.decodestring(score)
+            score = score.decode('hex')
             valid = "OK"
         except:
             score = None
-            valid = "Erreur : Base64 Decode"
+            valid = "Erreur : Hexadecimal Decode"
         return (valid, score)
 
     def decrypt(score):
@@ -50,7 +49,7 @@ def _sendScore(request):
 
     def dechecksum(score):
         try:
-            fichier_checksum = open("checksum/checksum.db", "rb")
+            fichier_checksum = open("app1/func/checksum/checksum.db", "rb")
             mon_pickler = pickle.Unpickler(fichier_checksum)
             liste_checksum = mon_pickler.load()
             fichier_checksum.close()
@@ -85,7 +84,7 @@ def _sendScore(request):
     valid = "OK"
     if score:
         if valid == "OK":
-            (valid, score) = debase64(score)
+            (valid, score) = dehex(score)
         if valid == "OK":
             (valid, score) = decrypt(score)
         if valid == "OK":
@@ -95,7 +94,4 @@ def _sendScore(request):
         if valid == "OK":
             valid = addDB(score)
 
-    return render(request,
-                  'app1/base.html',
-                  {'titre': "Ajout Score",
-                   'body': valid})
+    return HttpResponse(valid)
