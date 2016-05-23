@@ -15,5 +15,5 @@ class Score(models.Model):
 
     def __str__(self):
         """Cette méthode permet de reconnaître facilement l'objet"""
-        return (self.pseudo, self.score)
+        return (self.pseudo)
 
