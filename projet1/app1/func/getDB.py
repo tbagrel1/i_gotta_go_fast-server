@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/python2
 # -*- coding: utf-8 -*
 
 from django.shortcuts import HttpResponse
