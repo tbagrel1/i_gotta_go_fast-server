@@ -27,18 +27,43 @@
 	e
 
 # File marks:
-'0  8  4  ~/.git/MERGE_MSG
-'1  6  7  ~/projet1/app1/func/getDB.py
-'2  22  0  ~/projet1/app1/views.py
-'3  25  0  ~/projet1/app1/views.py
-'4  24  30  ~/projet1/app1/views.py
-'5  31  9  ~/projet1/app1/views.py
-'6  5  4  ~/projet1/app1/func/viewScore.py
-'7  6  7  ~/projet1/app1/func/sendScore.py
-'8  32  14  ~/projet1/app1/views.py
-'9  5  26  ~/projet1/app1/urls.py
+'0  13  0  ~/projet/templates/app1/calc.html
+'1  2  90  ~/projet/templates/app1/base.html
+'2  1  13  ~/projet/templates/app1/base.html
+'3  76  0  ~/projet/settings.py
+'4  79  33  ~/projet/settings.py
+'5  132  0  ~/projet/settings.py
+'6  114  36  ~/projet/settings.py
+'7  26  27  ~/projet/app1/views.py
+'8  40  25  ~/projet/app1/views.py
+'9  70  22  ~/projet/settings.py
 
 # Jumplist (newest first):
+-'  13  0  ~/projet/templates/app1/calc.html
+-'  1  0  ~/projet/templates/app1/calc.html
+-'  2  90  ~/projet/templates/app1/base.html
+-'  1  13  ~/projet/templates/app1/base.html
+-'  76  0  ~/projet/settings.py
+-'  79  33  ~/projet/settings.py
+-'  132  0  ~/projet/settings.py
+-'  114  36  ~/projet/settings.py
+-'  70  22  ~/projet/settings.py
+-'  26  27  ~/projet/app1/views.py
+-'  40  25  ~/projet/app1/views.py
+-'  39  0  ~/projet/app1/views.py
+-'  127  13  ~/projet/settings.py
+-'  7  34  ~/projet/urls.py
+-'  8  0  ~/projet/urls.py
+-'  4  39  ~/projet/urls.py
+-'  6  31  ~/projet/app1/urls.py
+-'  1  0  ~/projet/app1/views.py
+-'  7  29  ~/projet/app1/urls.py
+-'  4  29  ~/projet/app1/urls.py
+-'  1  0  ~/projet/urls.py
+-'  1  0  ~/projet/app1/urls.py
+-'  18  22  ~/projet/settings.py
+-'  1  0  ~/projet/app1/ur
+-'  1  0  ~/projet/settings.py
 -'  8  4  ~/.git/MERGE_MSG
 -'  1  0  ~/.git/MERGE_MSG
 -'  6  7  ~/projet1/app1/func/getDB.py
@@ -113,33 +138,62 @@
 -'  1  0  ~/site_django/site_django/app1/views.py
 -'  40  16  ~/site_django/site_django/settings.py
 -'  1  0  ~/site_django/settings.py
--'  108  21  ~/site_django/site_django/settings.py
--'  1  0  ~/site_django/site_django/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  107  21  ~/site_django/site_django/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
--'  26  11  ~/test1/test1/settings.py
--'  1  0  ~/test1/test1/settings.py
--'  121  21  ~/test1/test1/settings.py
 
 # History of marks within files (newest to oldest):
+
+> ~/projet/templates/app1/calc.html
+	"	13	0
+
+> ~/projet/templates/app1/base.html
+	"	2	90
+	^	2	91
+	.	2	87
+	+	1	0
+	+	2	79
+	+	1	14
+	+	2	87
+
+> ~/projet/settings.py
+	"	76	0
+	^	79	34
+	.	79	32
+	+	17	44
+	+	18	20
+	+	127	11
+	+	114	37
+	+	79	32
+
+> ~/projet/app1/views.py
+	"	26	27
+	^	26	28
+	.	26	28
+	+	10	36
+	+	18	36
+	+	26	36
+	+	10	27
+	+	18	28
+	+	26	28
+
+> ~/projet/urls.py
+	"	7	34
+	^	7	35
+	.	7	34
+	+	4	60
+	+	4	59
+	+	7	34
+
+> ~/projet/app1/urls.py
+	"	6	31
+	^	6	31
+	.	6	30
+	+	4	41
+	+	7	29
+	+	6	27
+	+	4	29
+	+	6	30
+
+> ~/projet/app1/ur
+	"	1	0
 
 > ~/.git/MERGE_MSG
 	"	8	4

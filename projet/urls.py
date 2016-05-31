@@ -4,5 +4,5 @@
 from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = [
-    url(r'^app1/', include('app1.urls')),
+    url(r'^app1/', include('projet.app1.urls')),
 ]

@@ -1,5 +1,5 @@
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'app1/style_base.css' %}" />
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}app1/style_base.css" />
 
 <html lang="fr">
     <head>
