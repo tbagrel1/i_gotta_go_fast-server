@@ -101,14 +101,14 @@ def _viewScores(request):
     """\
                 .format(type_ligne,
                         str(elt.id),
-                        str(elt.pseudo),
+                        elt.pseudo.encode("utf-8"),
                         str(elt.score),
-                        str(elt.cpm),
-                        str(elt.mpm),
+                        str(float(elt.cpm)),
+                        str(float(elt.mpm)),
                         str(elt.temps),
-                        str(elt.date),
-                        str(elt.heure),
-                        str(elt.texte_mode_enh))
+                        unicode(elt.date).encode("utf-8"),
+                        unicode(elt.heure).encode("utf-8"),
+                        elt.texte_mode_enh).encode("utf-8")
         c += """        </table>
     </body>
 </html>"""

@@ -13,15 +13,15 @@ def _getDB(request):
         tab = list(Score.objects.order_by('-score'))
         db = []
         for ligne in tab:
-            dico_score = {"pseudo": ligne.pseudo,
-                          "score": ligne.score,
-                          "cpm": ligne.cpm,
-                          "mpm": ligne.mpm,
-                          "temps": ligne.temps,
-                          "date": ligne.date,
-                          "heure": ligne.heure,
-                          "texte_mode_enh": ligne.texte_mode_enh}
-            db.append(dico_score)
+            dico = {"pseudo": ligne.pseudo.encode("utf-8"),
+                    "score": int(ligne.score),
+                    "cpm": float(ligne.cpm),
+                    "mpm": float(ligne.mpm),
+                    "temps": int(ligne.temps),
+                    "date": unicode(ligne.date).encode("utf-8"),
+                    "heure": unicode(ligne.heure).encode("utf-8"),
+                    "texte_mode_enh": ligne.texte_mode_enh.encode("utf-8")}
+            db.append(dico)
     except:
         db = None
 
