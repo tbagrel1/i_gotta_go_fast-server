@@ -30,5 +30,4 @@ def _getDB(request):
     retour = pickle.dumps(db)
     retour = binascii.b2a_hex(retour)
 
-    #return HttpResponse(retour)
-    return HttpResponse(os.getcwd())
+    return HttpResponse(retour)
