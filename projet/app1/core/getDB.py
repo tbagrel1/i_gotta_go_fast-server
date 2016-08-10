@@ -6,7 +6,6 @@ from projet.app1.models import Score
 
 import pickle
 import binascii
-import os
 
 def _getDB(request):
     try:
@@ -22,7 +21,7 @@ def _getDB(request):
                     "date": unicode(ligne.date).encode("utf-8"),
                     "heure": unicode(ligne.heure).encode("utf-8"),
                     "texte_mode_enh": ligne.texte_mode_enh.encode("utf-8")}
-            if dico["aff"]:
+            if dico["aff"] and dico["pseudo"][0] != "#":
                 db.append(dico)
     except:
         db = []
