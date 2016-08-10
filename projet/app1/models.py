@@ -4,6 +4,7 @@
 from django.db import models
 
 class Score(models.Model):
+    aff = models.BooleanField(verbose_name="Affichage du score")
     pseudo = models.CharField(max_length=21, verbose_name="Pseudo")
     score = models.IntegerField(verbose_name="Score")
     cpm = models.DecimalField(max_digits=5, decimal_places=1,
@@ -17,4 +18,9 @@ class Score(models.Model):
                                       verbose_name="Texte utilisé")
 
     def __str__(self):
-        return (self.pseudo)
+        if self.aff:
+            pretty = " (Affiché)"
+        else:
+            pretty = " (Caché)"
+        string_a_afficher = self.pseudo + pretty
+        return string_a_afficher

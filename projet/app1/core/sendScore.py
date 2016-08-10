@@ -24,8 +24,8 @@ def _sendScore(request):
 
     def decrypt(score):
         try:
-            decodeur = AES.new('mot_de_passe_16o', AES.MODE_CBC,
-                               "vecteur_init_16o")
+            decodeur = AES.new("Wvab2rFaKiCNP5W4", AES.MODE_CBC,
+                               "PFaP61MX9pax9MmB")
             score = decodeur.decrypt(score)
             while score[-1] == "\0":
                 score = score[:-1]
@@ -37,14 +37,7 @@ def _sendScore(request):
 
     def depickle(score):
         try:
-            doc_pick = open("temp.tmp", "wb")
-            doc_pick.write(score)
-            doc_pick.close()
-            doc_pick = open("temp.tmp", "rb")
-            mon_pickler = pickle.Unpickler(doc_pick)
-            score = mon_pickler.load()
-            doc_pick.close()
-            os.remove("temp.tmp")
+            score = pickle.loads(score)
             valid = "OK"
         except:
             score = None
@@ -52,16 +45,14 @@ def _sendScore(request):
         return (valid, score)
 
     def dechecksum(score):
-        try:
-            fichier_checksum = open(os.getcwd() +
-                                    "projet/app1/func/checksum/checksum.db",
-                                    "rb")
-            mon_pickler = pickle.Unpickler(fichier_checksum)
-            liste_checksum = mon_pickler.load()
-            fichier_checksum.close()
-        except:
-            liste_checksum = []
-        if score[0] in liste_checksum:
+        fichier = open("checksum.db", "r")
+        liste_lignes = fichier.readlines()
+        fichier.close()
+        # On ne récupère que les lignes qui sont non vides et qui ne 
+        # commencent pas par un '#'
+        liste_lignes = [ligne[:-1].strip() for ligne in liste_lignes if 
+                        ligne[:-1].strip() and ligne[:-1].strip()[0] != "#"]
+        if score[0] in liste_lignes:
             score = score[1]
             valid = "OK"
         else:
@@ -71,7 +62,8 @@ def _sendScore(request):
 
     def addDB(score):
         try:
-            Score.objects.create(pseudo=score["pseudo"],
+            Score.objects.create(aff=score["aff"],
+                                 pseudo=score["pseudo"],
                                  score=score["score"],
                                  cpm=score["cpm"],
                                  mpm=score["mpm"],

@@ -8,16 +8,27 @@ import binascii
 
 def _viewScores(request):
 
-    pseudo_cur = request.GET.get('pseudo', '')
-    date_cur = request.GET.get('date', '')
-    heure_cur = request.GET.get('heure', '')
+    # Définition des fonctions
+    def dehex(valeur):
+        try:
+            valeur = binascii.a2b_hex(valeur)
+        except:
+            valeur = None
+        return valeur
 
-    pseudo_cur = binascii.a2b_hex(pseudo_cur)
-    date_cur = binascii.a2b_hex(date_cur)
-    heure_cur = binascii.a2b_hex(heure_cur)
+    # Corps du programme
+
+    pseudo_cur = request.GET.get("pseudo", "")
+    date_cur = request.GET.get("date", "")
+    heure_cur = request.GET.get("heure", "")
+
+    pseudo_cur = dehex(pseudo_cur)
+    date_cur = dehex(date_cur)
+    heure_cur = dehex(heure_cur)
 
     try:
         db = list(Score.objects.order_by('-score'))
+        db = [elt for elt in db if bool(elt.aff) is True]
     except:
         db = None
     if db:
@@ -74,7 +85,6 @@ def _viewScores(request):
 
         for elt in db:
             type_ligne = ""
-
             if str(elt.pseudo)[0] == "#":
                 type_ligne = "cat"
             elif pas_encore_trouve_best:
@@ -108,12 +118,12 @@ def _viewScores(request):
                         str(elt.temps),
                         unicode(elt.date).encode("utf-8"),
                         unicode(elt.heure).encode("utf-8"),
-                        elt.texte_mode_enh).encode("utf-8")
+                        elt.texte_mode_enh.encode("utf-8"))
         c += """        </table>
     </body>
 </html>"""
 
     else:
-        c = "ERROR"
+        c = "Erreur : Aucun score"
 
     return HttpResponse(c)
