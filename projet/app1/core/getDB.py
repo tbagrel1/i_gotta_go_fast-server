@@ -24,7 +24,7 @@ def _getDB(request):
             if dico["aff"]:
                 db.append(dico)
     except:
-        db = None
+        db = []
 
     retour = pickle.dumps(db)
     retour = binascii.b2a_hex(retour)
