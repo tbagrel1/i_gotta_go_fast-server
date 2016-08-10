@@ -19,7 +19,7 @@ def _testConnection(request):
 
     def dechecksum(checksum):
 
-        fichier = open("checksum.db", "r")
+        fichier = open("core/checksum.db", "r")
         liste_lignes = fichier.readlines()
         fichier.close()
         # On ne récupère que les lignes qui sont non vides et qui ne 
