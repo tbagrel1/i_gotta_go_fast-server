@@ -6,8 +6,10 @@ from projet.app1.models import Score
 
 import pickle
 import binascii
+import os
 
 def _getDB(request):
+    print(os.getcwd())
     try:
         tab = list(Score.objects.order_by('-score'))
         db = []
