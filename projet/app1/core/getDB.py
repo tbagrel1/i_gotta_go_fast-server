@@ -9,7 +9,6 @@ import binascii
 import os
 
 def _getDB(request):
-    print(os.getcwd())
     try:
         tab = list(Score.objects.order_by('-score'))
         db = []
@@ -31,4 +30,5 @@ def _getDB(request):
     retour = pickle.dumps(db)
     retour = binascii.b2a_hex(retour)
 
-    return HttpResponse(retour)
+    #return HttpResponse(retour)
+    return HttpResponse(os.getcwd())
