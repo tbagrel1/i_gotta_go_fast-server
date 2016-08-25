@@ -45,7 +45,7 @@ def _sendScore(request):
         return (valid, score)
 
     def dechecksum(score):
-        liste_check = utilsCheck.getCheck("check")
+        liste_check = utilsCheck.getCheck("projet/app1/core/check")
         if score[0] in liste_check:
             score = score[1]
             valid = "OK"
