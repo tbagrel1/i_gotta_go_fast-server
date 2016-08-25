@@ -1,2 +1,18 @@
 ~Pseudo,~Score,~CPM,~MPM,~Temps,~Date,~Heure,~Mode de Texte
-Thomas,3214,324,76,60,---,---,Inconnu
+Dieu,100000,10000,2000,60,01-01-2000,00:00:00,Inconnu
+Demi-Dieu,5000,500,100,60,01-01-2000,00:00:00,Inconnu
+Professionnel,4000,400,80,60,01-01-2000,00:00:00,Inconnu
+Expert,3000,300,60,60,01-01-2000,00:00:00,Inconnu
+Grand Maître,2000,200,40,60,01-01-2000,00:00:00,Inconnu
+Champion,1500,150,30,60,01-01-2000,00:00:00,Inconnu
+Habitué,1000,100,20,60,01-01-2000,00:00:00,Inconnu
+Débutant V,750,75,15,60,01-01-2000,00:00:00,Inconnu
+Débutant IV,500,50,10,60,01-01-2000,00:00:00,Inconnu
+Débutant III,300,30,6,60,01-01-2000,00:00:00,Inconnu
+Débutant II,200,20,4,60,01-01-2000,00:00:00,Inconnu
+Débutant I,100,10,2,60,01-01-2000,00:00:00,Inconnu
+Enfant V,50,5,1,60,01-01-2000,00:00:00,Inconnu
+Enfant IV,40,4,1,60,01-01-2000,00:00:00,Inconnu
+Enfant III,30,3,1,60,01-01-2000,00:00:00,Inconnu
+Enfant II,20,2,0,60,01-01-2000,00:00:00,Inconnu
+Enfant I,10,1,0,60,01-01-2000,00:00:00,Inconnu

@@ -41,7 +41,9 @@ def _viewScores(request):
     except:
         db = None
     if db:
-        liste_rang = utilsRang.getRang()
+        liste_rang = utilsRang.getRang("projet/app1/score/rang")
+        for i in range(len(liste_rang)):
+            liste_rang[i]["pseudo"] = "#" + liste_rang[i]["pseudo"]
         db += liste_rang
         db = sorted(db, key=lambda elt: int(elt.score), reverse=True)
         # Ici on ajoute les autres scores 
