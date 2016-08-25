@@ -19,7 +19,7 @@ def _testConnection(request):
         return (valid, checksum)
 
     def dechecksum(checksum):
-        liste_check = utilsCheck.getCheck()
+        liste_check = utilsCheck.getCheck("check")
         if checksum in liste_check:
             valid = "OK"
         else:
