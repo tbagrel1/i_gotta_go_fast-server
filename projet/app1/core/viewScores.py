@@ -41,7 +41,7 @@ def _viewScores(request):
     except:
         db = None
     if db:
-        liste_rang = utilsRang.getRang("projet/app1/score/rang")
+        liste_rang = utilsRang.getRang("projet/app1/core/rang")
         for i in range(len(liste_rang)):
             liste_rang[i]["pseudo"] = "#" + liste_rang[i]["pseudo"]
         db += liste_rang
