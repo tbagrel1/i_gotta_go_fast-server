@@ -4,6 +4,7 @@
 # Import des modules
 
 import pickle
+import hashlib
 
 def parserCheck(nom_fichier_check):
     fichier_check = open(nom_fichier_check + ".csv", "r")
@@ -27,7 +28,27 @@ def getCheck(nom_fichier_check):
 
     return liste_check
 
+def calculerCheck(nom_fichier):
+    return hashlib.md5(open(nom_fichier, "rb").read()).hexdigest()
+
 def main():
+
+    def menu():
+        choix = raw_input("\nQue voulez-vous faire ?\n    1. Compiler les " + 
+                          "checksums\n    2. Obtenir une checksum\n>>> ")
+        return choix
+
+    while True:
+        choix = menu()
+        if choix[0:2] == "1 ":
+            parserCheck(choix[2:])
+        elif choix[0:2] == "2 ":
+            print(calculerCheck(choix[2:]))
+        elif choix == "\exit":
+            return
+        else:
+            print("--> Choix incorrect. Recommencez")
+
     nom_fichier_check = raw_input("Entrez le radical du fichier .csv " +
                                   "contenant les checksums\n>>> ")
     parserCheck(nom_fichier_check)
