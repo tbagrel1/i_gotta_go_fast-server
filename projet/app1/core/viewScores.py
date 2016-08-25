@@ -45,7 +45,7 @@ def _viewScores(request):
         for i in range(len(liste_rang)):
             liste_rang[i]["pseudo"] = "#" + liste_rang[i]["pseudo"]
         db += liste_rang
-        db = sorted(db, key=lambda elt: int(elt.score), reverse=True)
+        db = sorted(db, key=lambda elt: int(elt["score"]), reverse=True)
         # Ici on ajoute les autres scores 
 
         c = """<html lang="fr">
