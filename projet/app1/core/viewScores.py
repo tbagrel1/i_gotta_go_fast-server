@@ -5,6 +5,7 @@ from django.shortcuts import HttpResponse
 from projet.app1.models import Score
 
 import binascii
+from projet.app1.core import utilsRang
 
 def _viewScores(request):
 
@@ -28,10 +29,23 @@ def _viewScores(request):
 
     try:
         db = list(Score.objects.order_by('-score'))
-        db = [elt for elt in db if bool(elt.aff) is True]
+        db = [{"pseudo": unicode(elt.pseudo).encode("utf-8"),
+               "score": str(elt.score),
+               "cpm": str(float(elt.cpm)),
+               "mpm": str(float(elt.mpm)),
+               "temps": str(elt.temps),
+               "date": unicode(elt.date).encode("utf-8"),
+               "heure": unicode(elt.heure).encode("utf-8"),
+               "texte_mode_enh": unicode(elt.texte_mode_enh).encode("utf-8")}
+              for elt in db if bool(elt.aff) is True]
     except:
         db = None
     if db:
+        liste_rang = utilsRang.getRang()
+        db += liste_rang
+        db = sorted(db, key=lambda elt: int(elt.score), reverse=True)
+        # Ici on ajoute les autres scores 
+
         c = """<html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -69,7 +83,6 @@ def _viewScores(request):
     <body>
         <table>
             <tr>
-                <td>ID</td>
                 <td>Pseudo</td>
                 <td>Score</td>
                 <td>Caractères par minute</td>
@@ -106,19 +119,17 @@ def _viewScores(request):
                 <td>{}</td>
                 <td>{}</td>
                 <td>{}</td>
-                <td>{}</td>
             </tr>
     """\
                 .format(type_ligne,
-                        str(elt.id),
-                        elt.pseudo.encode("utf-8"),
+                        unicode(elt.pseudo).encode("utf-8"),
                         str(elt.score),
                         str(float(elt.cpm)),
                         str(float(elt.mpm)),
                         str(elt.temps),
                         unicode(elt.date).encode("utf-8"),
                         unicode(elt.heure).encode("utf-8"),
-                        elt.texte_mode_enh.encode("utf-8"))
+                        unicode(elt.texte_mode_enh).encode("utf-8"))
         c += """        </table>
     </body>
 </html>"""

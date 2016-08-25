@@ -13,14 +13,15 @@ def _getDB(request):
         db = []
         for ligne in tab:
             dico = {"aff": bool(ligne.aff),
-                    "pseudo": ligne.pseudo.encode("utf-8"),
+                    "pseudo": unicode(ligne.pseudo).encode("utf-8"),
                     "score": int(ligne.score),
                     "cpm": float(ligne.cpm),
                     "mpm": float(ligne.mpm),
                     "temps": int(ligne.temps),
                     "date": unicode(ligne.date).encode("utf-8"),
                     "heure": unicode(ligne.heure).encode("utf-8"),
-                    "texte_mode_enh": ligne.texte_mode_enh.encode("utf-8")}
+                    "texte_mode_enh": unicode(ligne.texte_mode_enh)
+                    .encode("utf-8")}
             if dico["aff"] and dico["pseudo"][0] != "#":
                 db.append(dico)
     except:

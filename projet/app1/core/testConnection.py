@@ -4,6 +4,7 @@
 from django.shortcuts import HttpResponse
 
 import binascii
+from projet.app1.core import utilsCheck
 
 def _testConnection(request):
 
@@ -18,16 +19,8 @@ def _testConnection(request):
         return (valid, checksum)
 
     def dechecksum(checksum):
-
-        fichier = open("projet/app1/core/checksum.db", "r")
-        liste_lignes = fichier.readlines()
-        fichier.close()
-        # On ne récupère que les lignes qui sont non vides et qui ne 
-        # commencent pas par un '#'
-        liste_lignes = [ligne[:-1].strip() for ligne in liste_lignes if 
-                        ligne[:-1].strip() and ligne[:-1].strip()[0] != "#"]
-
-        if checksum in liste_lignes:
+        liste_check = utilsCheck.getCheck()
+        if checksum in liste_check:
             valid = "OK"
         else:
             valid = "Erreur : Checksum"

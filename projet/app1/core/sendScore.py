@@ -5,9 +5,9 @@ from django.shortcuts import HttpResponse
 from projet.app1.models import Score
 from Crypto.Cipher import AES
 
-import os
 import pickle
 import binascii
+from projet.app1.core import utilsCheck
 
 def _sendScore(request):
 
@@ -45,14 +45,8 @@ def _sendScore(request):
         return (valid, score)
 
     def dechecksum(score):
-        fichier = open("projet/app1/core/checksum.db", "r")
-        liste_lignes = fichier.readlines()
-        fichier.close()
-        # On ne récupère que les lignes qui sont non vides et qui ne 
-        # commencent pas par un '#'
-        liste_lignes = [ligne[:-1].strip() for ligne in liste_lignes if 
-                        ligne[:-1].strip() and ligne[:-1].strip()[0] != "#"]
-        if score[0] in liste_lignes:
+        liste_check = utilsCheck.getCheck()
+        if score[0] in liste_check:
             score = score[1]
             valid = "OK"
         else:
