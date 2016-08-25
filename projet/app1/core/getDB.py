@@ -22,7 +22,7 @@ def _getDB(request):
                     "heure": unicode(ligne.heure).encode("utf-8"),
                     "texte_mode_enh": unicode(ligne.texte_mode_enh)
                     .encode("utf-8")}
-            if dico["aff"] and dico["pseudo"][0] != "#":
+            if dico["aff"]:
                 db.append(dico)
     except:
         db = []

@@ -19,9 +19,10 @@ def parserRang(nom_fichier_rang):
                      "score": elt[1],
                      "cpm": elt[2],
                      "mpm": elt[3],
-                     "date": elt[4],
-                     "heure": elt[5],
-                     "texte_mode_enh": elt[6]}
+                     "temps": elt[4],
+                     "date": elt[5],
+                     "heure": elt[6],
+                     "texte_mode_enh": elt[7]}
         liste_dico_rang.append(dico_rang)
 
     print(liste_dico_rang)
