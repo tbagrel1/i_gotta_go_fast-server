@@ -100,14 +100,14 @@ def _viewScores(request):
 
         for elt in db:
             type_ligne = ""
-            if str(elt.pseudo)[0] == "#":
+            if str(elt["pseudo"])[0] == "#":
                 type_ligne = "cat"
             elif pas_encore_trouve_best:
                 type_ligne = "best"
                 pas_encore_trouve_best = False
-            elif (str(elt.pseudo) == pseudo_cur and
-                  str(elt.date) == date_cur and
-                  str(elt.heure) == heure_cur):
+            elif (str(elt["pseudo"]) == pseudo_cur and
+                  str(elt["date"]) == date_cur and
+                  str(elt["heure"]) == heure_cur):
                 type_ligne = "self"
             else:
                 type_ligne = "normal"
@@ -124,14 +124,14 @@ def _viewScores(request):
             </tr>
     """\
                 .format(type_ligne,
-                        unicode(elt.pseudo).encode("utf-8"),
-                        str(elt.score),
-                        str(float(elt.cpm)),
-                        str(float(elt.mpm)),
-                        str(elt.temps),
-                        unicode(elt.date).encode("utf-8"),
-                        unicode(elt.heure).encode("utf-8"),
-                        unicode(elt.texte_mode_enh).encode("utf-8"))
+                        elt["pseudo"],
+                        elt["score"],
+                        elt["cpm"],
+                        elt["mpm"],
+                        elt["temps"],
+                        elt["date"],
+                        elt["heure"],
+                        elt["texte_mode_enh"])
         c += """        </table>
     </body>
 </html>"""
